@@ -1,5 +1,5 @@
 import 'package:club/clubs/ui.const.dart' show width20;
-import 'package:club/clubs/view/common.components/club.title.dart';
+import 'package:club/clubs/view/common.components/create.club/club.title.dart';
 import 'package:club/clubs/custom.widget/custom.textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

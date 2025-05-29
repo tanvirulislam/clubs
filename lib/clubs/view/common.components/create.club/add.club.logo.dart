@@ -2,7 +2,7 @@ import 'package:club/clubs/context.dart';
 import 'package:club/clubs/module/file.picker/provider/file.picker.provider.dart';
 import 'package:club/clubs/module/file.picker/view/upoaded.file.dart';
 import 'package:club/clubs/ui.const.dart' show width10, height5;
-import 'package:club/clubs/view/common.components/club.title.dart';
+import 'package:club/clubs/view/common.components/create.club/club.title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

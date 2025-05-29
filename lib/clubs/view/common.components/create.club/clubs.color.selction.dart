@@ -1,6 +1,6 @@
 import 'package:club/clubs/provider/providers.dart';
 import 'package:club/clubs/ui.const.dart';
-import 'package:club/clubs/view/common.components/club.title.dart';
+import 'package:club/clubs/view/common.components/create.club/club.title.dart';
 import 'package:club/clubs/custom.widget/custom.textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';

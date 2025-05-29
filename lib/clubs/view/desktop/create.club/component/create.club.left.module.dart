@@ -1,8 +1,8 @@
 import 'package:club/clubs/ui.const.dart';
-import 'package:club/clubs/view/common.components/club.established.date.dart';
-import 'package:club/clubs/view/common.components/club.google.map.link.dart';
-import 'package:club/clubs/view/common.components/common.row.for.club.dart';
-import 'package:club/clubs/view/common.components/country.code.picker.dart';
+import 'package:club/clubs/view/common.components/create.club/club.established.date.dart';
+import 'package:club/clubs/view/common.components/create.club/club.google.map.link.dart';
+import 'package:club/clubs/view/common.components/create.club/common.row.for.club.dart';
+import 'package:club/clubs/view/common.components/create.club/country.code.picker.dart';
 import 'package:club/clubs/custom.widget/custom.dropdown.dart';
 import 'package:club/clubs/custom.widget/custom.textfield.dart';
 import 'package:flutter/material.dart';

@@ -1,11 +1,11 @@
 import 'package:club/clubs/context.dart';
 import 'package:club/clubs/ui.const.dart' show height10;
-import 'package:club/clubs/view/common.components/add.club.logo.dart';
-import 'package:club/clubs/view/common.components/add.club.social.link.dart';
-import 'package:club/clubs/view/common.components/add.club.video.link.dart';
-import 'package:club/clubs/view/common.components/club.title.dart';
-import 'package:club/clubs/view/common.components/clubs.color.selction.dart';
-import 'package:club/clubs/view/common.components/common.row.for.club.dart';
+import 'package:club/clubs/view/common.components/create.club/add.club.logo.dart';
+import 'package:club/clubs/view/common.components/create.club/add.club.social.link.dart';
+import 'package:club/clubs/view/common.components/create.club/add.club.video.link.dart';
+import 'package:club/clubs/view/common.components/create.club/club.title.dart';
+import 'package:club/clubs/view/common.components/create.club/clubs.color.selction.dart';
+import 'package:club/clubs/view/common.components/create.club/common.row.for.club.dart';
 import 'package:club/clubs/custom.widget/custom.textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

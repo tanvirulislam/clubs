@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:club/clubs/context.dart';
-import 'package:club/clubs/helper.method.dart';
+import 'package:club/clubs/helper.method/helper.method.dart';
 import 'package:club/clubs/view/club.subscription.dart';
 import 'package:club/clubs/view/common.components/club.card.dart';
 import 'package:club/clubs/view/common.components/game.options.tab.bar.dart';

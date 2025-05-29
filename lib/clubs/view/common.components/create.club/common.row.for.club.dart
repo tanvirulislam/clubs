@@ -1,4 +1,4 @@
-import 'package:club/clubs/view/common.components/club.title.dart';
+import 'package:club/clubs/view/common.components/create.club/club.title.dart';
 import 'package:flutter/material.dart';
 
 class CommonRowForClub extends StatelessWidget {
