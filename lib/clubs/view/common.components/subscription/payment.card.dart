@@ -1,3 +1,4 @@
+import 'package:club/clubs/context.dart';
 import 'package:club/clubs/ui.const.dart' show height10;
 import 'package:club/clubs/view/create.club.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,11 @@ class PaymentCard extends StatelessWidget {
         children: [
           Text(
             'Spordium Pro Monthly Subscription',
-            style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w600),
+            style: TextStyle(
+              fontSize: context.isMobileWidth ? null : 25.0,
+              fontWeight: FontWeight.w600,
+            ),
+            textAlign: TextAlign.center,
           ),
           Text(
             '700 tk',

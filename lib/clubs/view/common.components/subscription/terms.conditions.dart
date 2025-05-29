@@ -10,16 +10,18 @@ class SubscriptionTermsAndConditions extends StatelessWidget {
     return Container(
       width: context.width * 0.7,
       height: context.height * 0.7,
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(8),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Spordium Club - Terms & Conditions',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              Expanded(
+                child: Text(
+                  'Spordium Club - Terms & Conditions',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.pop(context),
