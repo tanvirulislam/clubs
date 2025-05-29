@@ -9,7 +9,7 @@ class ClubBanner extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final pickedFile = ref.watch(filePickerProvider('club_banner'));
+    final pickedFile = ref.watch(filePickersProvider('club_banner'));
     return Column(
       children: [
         UploadedImage(providerTag: 'club_banner'),
@@ -17,7 +17,7 @@ class ClubBanner extends ConsumerWidget {
           onPressed: () async {
             try {
               await ref
-                  .read(filePickerProvider('club_banner').notifier)
+                  .read(filePickersProvider('club_banner').notifier)
                   .pickFile(allowedExtensions: ['jpg', 'jpeg', 'png']);
             } catch (e) {
               if (!context.mounted) return;

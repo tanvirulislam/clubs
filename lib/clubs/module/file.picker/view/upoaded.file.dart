@@ -10,16 +10,16 @@ class UploadedImage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final pickedFiles = ref.watch(filePickerProvider(providerTag));
+    final pickedFiles = ref.watch(filePickersProvider(providerTag));
     return (pickedFiles != null)
         ? FileHolder(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.file(File(pickedFiles.path ?? '')),
-          ),
-          onRemove:
-              () => ref.read(filePickerProvider(providerTag).notifier).remove(),
-        )
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.file(File(pickedFiles.path ?? '')),
+            ),
+            onRemove: () =>
+                ref.read(filePickersProvider(providerTag).notifier).remove(),
+          )
         : const SizedBox.shrink();
   }
 }

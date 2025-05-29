@@ -11,7 +11,7 @@ class AddClubLogo extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final pickedFile = ref.watch(filePickerProvider('club_logo'));
+    final pickedFile = ref.watch(filePickersProvider('club_logo'));
     return Column(
       children: [
         Row(
@@ -29,7 +29,7 @@ class AddClubLogo extends ConsumerWidget {
                 onPressed: () async {
                   try {
                     await ref
-                        .read(filePickerProvider('club_logo').notifier)
+                        .read(filePickersProvider('club_logo').notifier)
                         .pickFile(
                           allowedExtensions: ['jpg', 'jpeg', 'png'],
                           maxSizeInKB: 200,

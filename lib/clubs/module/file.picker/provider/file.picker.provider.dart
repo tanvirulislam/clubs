@@ -1,5 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+part 'file.picker.provider.g.dart';
 
 // final filePickerProvider =
 //     NotifierProviderFamily<PickedFileProvider, PlatformFile?, String?>(
@@ -33,12 +35,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 //   void remove() => state = null;
 // }
 
-final filePickerProvider =
-    NotifierProviderFamily<PickedFileProvider, PlatformFile?, String?>(
-      PickedFileProvider.new,
-    );
+// final filePickerProvider =
+//     NotifierProviderFamily<PickedFileProvider, PlatformFile?, String?>(
+//       PickedFileProvider.new,
+//     );
 
-class PickedFileProvider extends FamilyNotifier<PlatformFile?, String?> {
+@riverpod
+class FilePickers extends _$FilePickers {
   @override
   PlatformFile? build(arg) => null;
 

@@ -1,24 +1,30 @@
 import 'package:club/clubs/model/club.color.model.dart';
 import 'package:club/clubs/ui.const.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+part 'providers.g.dart';
 
-final tecProvider =
-    NotifierProviderFamily<TECProvider, TextEditingController, String>(
-      TECProvider.new,
-    );
+// final tecProvider =
+//     NotifierProviderFamily<TECProvider, TextEditingController, String>(
+//       TECProvider.new,
+//     );
 
-class TECProvider extends FamilyNotifier<TextEditingController, String> {
+@riverpod
+class Tec extends _$Tec {
   @override
   TextEditingController build(String arg) => TextEditingController();
 }
 
-final clubColorSelectionProvider =
-    NotifierProvider<ClubColorSelection, List<ClubColor>?>(
-      ClubColorSelection.new,
-    );
+@riverpod
+class Bool extends _$Bool {
+  @override
+  bool? build(String? arg) => null;
+  void set(bool val) => state = val;
+  void toggle() => state = !state!;
+}
 
-class ClubColorSelection extends Notifier<List<ClubColor>?> {
+@riverpod
+class ClubColorSelection extends _$ClubColorSelection {
   @override
   List<ClubColor>? build() => [];
   Future<void> addColor() async {
