@@ -6,22 +6,22 @@ import 'package:club/clubs/view/common.components/create.club/club.title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AddClubLogo extends ConsumerWidget {
-  const AddClubLogo({super.key});
+class AddTrophieLogo extends ConsumerWidget {
+  const AddTrophieLogo({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final pickedFile = ref.watch(filePickersProvider('club_logo'));
+    final pickedFile = ref.watch(filePickersProvider('trophie_picture'));
     return Column(
       children: [
         Row(
           children: [
-            ClubTitle("Club's Logo"),
+            ClubTitle("Trophie Picture"),
             width10,
             SizedBox(
-              // width: 80,
+              width: 80,
               height: 80,
-              child: UploadedImage(providerTag: 'club_logo'),
+              child: UploadedImage(providerTag: 'trophie_picture'),
             ),
             width10,
             Expanded(
@@ -29,7 +29,7 @@ class AddClubLogo extends ConsumerWidget {
                 onPressed: () async {
                   try {
                     await ref
-                        .read(filePickersProvider('club_logo').notifier)
+                        .read(filePickersProvider('trophie_picture').notifier)
                         .pickFile(
                           allowedExtensions: ['jpg', 'jpeg', 'png'],
                           maxSizeInKB: 200,
@@ -45,7 +45,9 @@ class AddClubLogo extends ConsumerWidget {
                   }
                 },
                 label: Text(
-                  pickedFile != null ? pickedFile.name : "Upload Club's Logo",
+                  pickedFile != null
+                      ? pickedFile.name
+                      : "Upload Trophie Picture",
                 ),
                 icon: Icon(Icons.upload),
                 style: ElevatedButton.styleFrom(

@@ -1,3 +1,7 @@
+import 'package:club/clubs/module/club.details/view/tabs/about.us/about.us.dart';
+import 'package:club/clubs/module/club.details/view/tabs/fixture/fixture.dart';
+import 'package:club/clubs/module/club.details/view/tabs/teams/teams.dart';
+import 'package:club/clubs/module/club.details/view/tabs/trophies/triphies.dart';
 import 'package:club/clubs/module/club.details/view/desktop/club.details.desktop.dart';
 import 'package:flutter/material.dart';
 import 'package:club/clubs/view/common.components/club.ads.dart'
@@ -30,18 +34,18 @@ List<String>? tabOptions = [
   'Previous Metch',
   'Club Events',
   'Fecelites',
-  'Club turnaments',
+  'Club Turnaments',
   'Recruitments',
-  'Book field',
-  'Posta',
+  'Book Field',
+  'Posts',
   'Gallery',
 ];
 
 List<Widget>? tabBarChildren = [
-  Text('About Us'),
-  Text('Trophies'),
-  Text('Teams'),
-  Text('Fixture'),
+  AboutUs(),
+  Teophies(),
+  Teams(),
+  Fixture(),
   Text('Live Metch'),
   Text('Previous Metch'),
   Text('Club Events'),
