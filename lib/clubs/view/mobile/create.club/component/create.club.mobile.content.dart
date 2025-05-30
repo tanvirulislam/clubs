@@ -6,7 +6,7 @@ import 'package:club/clubs/view/common.components/create.club/club.established.d
 import 'package:club/clubs/view/common.components/create.club/club.google.map.link.dart';
 import 'package:club/clubs/view/common.components/create.club/add.club.logo.dart';
 import 'package:club/clubs/view/common.components/create.club/club.title.dart';
-import 'package:club/clubs/view/common.components/create.club/clubs.color.selction.dart';
+import 'package:club/clubs/view/common.components/create.club/club.color.selction.dart';
 import 'package:club/clubs/view/common.components/create.club/common.row.for.club.dart';
 import 'package:club/clubs/view/common.components/create.club/country.code.picker.dart';
 import 'package:club/clubs/custom.widget/custom.dropdown.dart';
@@ -129,7 +129,7 @@ class CreateClubMobileContent extends ConsumerWidget {
           height10,
           AddClubLogo(),
           height10,
-          ClubsColorSelection(),
+          ClubColorSelection(),
           AddClubVideoLink(),
           CommonRowForClub(
             "Club's Website",

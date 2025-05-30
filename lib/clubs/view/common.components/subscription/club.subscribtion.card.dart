@@ -1,4 +1,5 @@
 import 'package:club/clubs/context.dart';
+import 'package:club/clubs/custom.widget/custom.button.dart';
 import 'package:club/clubs/provider/providers.dart';
 import 'package:club/clubs/ui.const.dart' show height10, height20, width5;
 import 'package:flutter/material.dart';
@@ -94,17 +95,9 @@ class ClubSubscriptionCard extends ConsumerWidget {
                     ),
                   ),
             height20,
-            ElevatedButton(
-              onPressed: onPressed,
-              style: ElevatedButton.styleFrom(
-                fixedSize: Size(context.width, 35),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                backgroundColor: Color(0xff060C2F),
-                foregroundColor: Colors.white,
-              ),
-              child: Text(buttonTitle ?? ''),
+            SizedBox(
+              width: context.width,
+              child: CustomButton(onPressed: onPressed, title: buttonTitle),
             ),
             height10,
             Divider(),

@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:club/clubs/context.dart';
+import 'package:club/clubs/custom.widget/custom.button.dart';
 import 'package:club/clubs/helper.method/helper.method.dart';
 import 'package:club/clubs/module/club.details/view/club.details.dart'
     show ClubDetails;
@@ -18,17 +19,18 @@ class Clubs extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          ElevatedButton(
+          CustomButton(
             onPressed: () async {
               await Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => CliubSubscription()),
               );
             },
-            child: Text('Create Club'),
+            title: 'Create Club',
           ),
+
           SizedBox(width: 8),
-          ElevatedButton(onPressed: () {}, child: Text('My Club')),
+          CustomButton(onPressed: () {}, title: 'My Club'),
           SizedBox(width: 8),
         ],
       ),

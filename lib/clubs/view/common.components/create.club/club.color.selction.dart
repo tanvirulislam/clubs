@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ClubsColorSelection extends ConsumerWidget {
-  const ClubsColorSelection({super.key});
+class ClubColorSelection extends ConsumerWidget {
+  const ClubColorSelection({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
