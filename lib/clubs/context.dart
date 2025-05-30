@@ -8,9 +8,7 @@ extension BuildContextExtension on BuildContext {
   double get height => size.height;
   double get width => size.width;
   double get shortestSide => mediaQuery.size.shortestSide;
-  double get personalInfoTextFieldMinimumWidth => 500;
-  double get personalInfoTextFieldSmallMinimumWidth => 245;
-  bool get isPhone => shortestSide < 600; //ok
+  bool get isPhone => shortestSide < 600;
   bool get isTablet => shortestSide >= 600 && shortestSide < 900;
   bool get isDesktopScreen => width >= 1200;
   bool get isTabletScreen => width >= 800 && width < 1200;
@@ -30,4 +28,14 @@ extension BuildContextExtension on BuildContext {
   bool get isMacOS => theme.platform == TargetPlatform.macOS;
   bool get isDesktop => isWindows || isLinux || isMacOS;
   bool get isMobile => isAndroid || isIOS;
+
+  //textStyle
+  TextStyle get titleLarge => Theme.of(this).textTheme.titleLarge!;
+  TextStyle get titleMedium => Theme.of(this).textTheme.titleMedium!;
+  TextStyle get titleSmall => Theme.of(this).textTheme.titleSmall!;
+
+  TextStyle get bosdyLarge => Theme.of(this).textTheme.bodyLarge!;
+  TextStyle get bodySmall => Theme.of(this).textTheme.bodySmall!;
+  TextStyle get bodyMedium => Theme.of(this).textTheme.bodyMedium!;
+  TextStyle get headlineMedium => Theme.of(this).textTheme.headlineMedium!;
 }

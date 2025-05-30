@@ -12,9 +12,8 @@ class ClubAds extends StatelessWidget {
         CachedNetworkImage(
           height: 200,
           width: context.width,
-          fit: BoxFit.fill,
-          imageUrl:
-              'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+          fit: BoxFit.cover,
+          imageUrl: clubAdsImage,
           placeholder: (context, url) =>
               Center(child: CircularProgressIndicator()),
           errorWidget: (context, url, error) => Icon(Icons.error),
@@ -49,3 +48,6 @@ class ClubAds extends StatelessWidget {
     );
   }
 }
+
+const String clubAdsImage =
+    'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';

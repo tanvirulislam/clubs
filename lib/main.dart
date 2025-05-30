@@ -1,3 +1,4 @@
+import 'package:club/clubs/view/club.details.dart';
 import 'package:club/clubs/view/clubs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,8 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: Clubs(),
-
-      // home: CreateClub(),
+      // home: ClubDetails(),
     );
   }
 }

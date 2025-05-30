@@ -1,4 +1,4 @@
-import 'package:club/clubs/view/common.components/club.game.base.card.dart';
+import 'package:club/clubs/view/abstract.classes/club.game.base.card.dart';
 import 'package:flutter/material.dart';
 
 // class ClubCard extends ConsumerWidget {

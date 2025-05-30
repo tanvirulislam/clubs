@@ -8,7 +8,10 @@ class GameOptionsTabBar extends StatefulWidget {
     this.selectedIndex = 0,
     this.getSelectedIndex,
     required this.children,
-  }) : assert(children.length == options.length, 'Options length must be equal to children length');
+  }) : assert(
+         children.length == options.length,
+         'Options length must be equal to children length',
+       );
   final List<String> options;
   final ValueSetter<String>? getSelectedOption;
   final ValueSetter<int>? getSelectedIndex;
@@ -64,7 +67,9 @@ class _GameOptionsTabBarState extends State<GameOptionsTabBar> {
                         child: Text(
                           widget.options[i],
                           style: TextStyle(
-                            fontWeight: isSlected ? FontWeight.bold : FontWeight.bold,
+                            fontWeight: isSlected
+                                ? FontWeight.bold
+                                : FontWeight.bold,
                             color: isSlected ? Colors.pink : null,
                           ),
                         ),
@@ -76,7 +81,7 @@ class _GameOptionsTabBarState extends State<GameOptionsTabBar> {
             ),
           ),
         ),
-        Expanded(child: widget.children[updatedIndex ?? 0]),
+        widget.children[updatedIndex ?? 0],
       ],
     );
   }
