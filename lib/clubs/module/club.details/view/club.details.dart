@@ -1,4 +1,4 @@
-import 'package:club/clubs/view/desktop/club.details/club.details.desktop.dart';
+import 'package:club/clubs/module/club.details/view/desktop/club.details.desktop.dart';
 import 'package:flutter/material.dart';
 import 'package:club/clubs/view/common.components/club.ads.dart'
     show clubAdsImage;

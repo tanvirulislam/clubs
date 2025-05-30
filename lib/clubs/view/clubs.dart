@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:club/clubs/context.dart';
 import 'package:club/clubs/helper.method/helper.method.dart';
-import 'package:club/clubs/view/club.details.dart' show ClubDetails;
+import 'package:club/clubs/module/club.details/view/club.details.dart'
+    show ClubDetails;
 import 'package:club/clubs/view/club.subscription.dart';
 import 'package:club/clubs/view/common.components/club.card.dart';
-import 'package:club/clubs/view/abstract.classes/game.options.tab.bar.dart';
+import 'package:club/clubs/custom.widget/abstract.classes/game.options.tab.bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

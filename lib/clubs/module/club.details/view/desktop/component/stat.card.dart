@@ -1,4 +1,4 @@
-import 'package:club/clubs/view/abstract.classes/stat.summary.card.dart';
+import 'package:club/clubs/custom.widget/abstract.classes/stat.summary.card.dart';
 
 class ClubStatSummaryCard extends StatSummaryCard {
   const ClubStatSummaryCard({super.key, super.items, super.cardHeight});

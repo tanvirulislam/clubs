@@ -1,4 +1,4 @@
-import 'package:club/clubs/view/club.details.dart';
+import 'package:club/clubs/module/club.details/view/club.details.dart';
 import 'package:club/clubs/view/clubs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

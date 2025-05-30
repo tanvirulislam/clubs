@@ -1,10 +1,10 @@
-import 'package:club/clubs/view/desktop/club.details/component/oponent.card.dart';
-import 'package:club/clubs/view/desktop/club.details/component/stat.card.dart';
+import 'package:club/clubs/module/club.details/view/desktop/component/oponent.card.dart';
+import 'package:club/clubs/module/club.details/view/desktop/component/stat.card.dart';
 import 'package:flutter/material.dart';
 import 'package:club/clubs/context.dart';
 import 'package:club/clubs/view/common.components/club.ads.dart' show ClubAds;
-import 'package:club/clubs/view/abstract.classes/detail.base.page.view.dart';
-import 'package:club/clubs/view/abstract.classes/game.options.tab.bar.dart';
+import 'package:club/clubs/custom.widget/abstract.classes/detail.base.page.view.dart';
+import 'package:club/clubs/custom.widget/abstract.classes/game.options.tab.bar.dart';
 
 class ClubDetailsDesktop extends DetailBasePageView {
   const ClubDetailsDesktop({

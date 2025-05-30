@@ -1,4 +1,4 @@
-import 'package:club/clubs/view/abstract.classes/game.options.tab.bar.dart';
+import 'package:club/clubs/custom.widget/abstract.classes/game.options.tab.bar.dart';
 import 'package:flutter/material.dart';
 
 abstract class DetailBasePageView extends StatelessWidget {
