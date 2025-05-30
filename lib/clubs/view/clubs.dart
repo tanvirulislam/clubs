@@ -67,15 +67,15 @@ class Clubs extends ConsumerWidget {
                         },
                         child: ClubCard(
                           imageUrl: imageUrl,
-                          teamName:
+                          cardTitle:
                               'Shahid Gazi Rahmatullah Kahn Sriti Gold Team',
                           rank: '#1 In Bangladesh',
                           winRate: '78%',
                           winLoss: '150/50',
                           city: 'Rajshahi',
                           points: '5000',
-                          totalTeams: 'Teams: 7',
-                          fanRating: 'Fan Rating: 3.4',
+                          footerLeadingData: 'Teams: 7',
+                          footerTrailingData: 'Fan Rating: 3.4',
                         ),
                       );
               },

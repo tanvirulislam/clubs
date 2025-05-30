@@ -1,6 +1,152 @@
 import 'package:club/clubs/custom.widget/abstract.classes/club.game.base.card.dart';
 import 'package:flutter/material.dart';
 
+class ClubCard extends ClubGameBaseCard {
+  final String rank;
+  final String winRate;
+  final String winLoss;
+  final String city;
+  final String points;
+
+  const ClubCard({
+    super.key,
+    required this.rank,
+    required this.winRate,
+    required this.winLoss,
+    required this.city,
+    required this.points,
+    super.imageUrl,
+    super.cardTitle,
+    super.footerLeadingIcon = Icons.people,
+    super.footerLeadingData,
+    super.footerTrailingIcon = Icons.star,
+    super.footerTrailingData,
+    super.footerTitle,
+  });
+
+  @override
+  Widget buildCardBody(BuildContext context) {
+    return Column(
+      children: [
+        Divider(),
+        _CommonRow(
+          title1: 'Win Rate',
+          title2: 'W/L',
+          title3: 'City',
+          title4: 'Points',
+        ),
+        _CommonRow(
+          isTitle: false,
+          title1: '78%',
+          title2: '150/50',
+          title3: 'Rajshahi',
+          title4: '5000',
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade300),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                margin: EdgeInsets.all(10),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image(
+                    width: 90,
+                    height: 90,
+                    image: NetworkImage(imageUrl),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    buildCardTitle(context),
+                    Text(rank, style: TextStyle(color: Colors.red)),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Expanded(flex: 4, child: buildCardBody(context)),
+          Expanded(flex: 2, child: buildCardFooter(context)),
+        ],
+      ),
+    );
+  }
+}
+
+class _CommonRow extends StatelessWidget {
+  const _CommonRow({
+    this.title1,
+    this.title2,
+    this.title3,
+    this.title4,
+    this.isTitle = true,
+  });
+  final String? title1;
+  final String? title2;
+  final String? title3;
+  final String? title4;
+  final bool isTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Text(
+            title1 ?? '',
+            style: isTitle ? TextStyle(fontSize: 12) : null,
+            textAlign: TextAlign.center,
+          ),
+        ),
+        Expanded(
+          child: Text(
+            title2 ?? '',
+            style: isTitle ? TextStyle(fontSize: 12) : null,
+            textAlign: TextAlign.center,
+          ),
+        ),
+        Expanded(
+          child: Text(
+            title3 ?? '',
+            style: isTitle ? TextStyle(fontSize: 12) : null,
+            textAlign: TextAlign.center,
+          ),
+        ),
+        Expanded(
+          child: Text(
+            title4 ?? '',
+            style: isTitle ? TextStyle(fontSize: 12) : null,
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+const imageUrl =
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR132TBAD0-GhGhN8_2Xr-3obkFd4NzFbk6Hg&s';
+
+
+
 // class ClubCard extends ConsumerWidget {
 //   const ClubCard(this.index, {super.key});
 //   final int index;
@@ -90,110 +236,3 @@ import 'package:flutter/material.dart';
 //     );
 //   }
 // }
-
-class ClubCard extends ClubGameBaseCard {
-  final String teamName;
-  final String rank;
-  final String winRate;
-  final String winLoss;
-  final String city;
-  final String points;
-  final String totalTeams;
-  final String fanRating;
-
-  const ClubCard({
-    super.key,
-    required this.teamName,
-    required this.rank,
-    required this.winRate,
-    required this.winLoss,
-    required this.city,
-    required this.points,
-    required this.totalTeams,
-    required this.fanRating,
-
-    super.imageUrl,
-  }) : super(
-         cardTitle: teamName,
-         footerLeadingIcon: Icons.people,
-         footerLeadingData: totalTeams,
-         footerTrailingIcon: Icons.star,
-         footerTrailingData: fanRating,
-       );
-
-  @override
-  Widget buildCardBody(BuildContext context) {
-    return Column(
-      children: [
-        Divider(),
-        _CommonRow(
-          title1: 'Win Rate',
-          title2: 'W/L',
-          title3: 'City',
-          title4: 'Points',
-        ),
-        _CommonRow(
-          isTitle: false,
-          title1: '78%',
-          title2: '150/50',
-          title3: 'Rajshahi',
-          title4: '5000',
-        ),
-      ],
-    );
-  }
-}
-
-class _CommonRow extends StatelessWidget {
-  const _CommonRow({
-    this.title1,
-    this.title2,
-    this.title3,
-    this.title4,
-    this.isTitle = true,
-  });
-  final String? title1;
-  final String? title2;
-  final String? title3;
-  final String? title4;
-  final bool isTitle;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Text(
-            title1 ?? '',
-            style: isTitle ? TextStyle(fontSize: 12) : null,
-            textAlign: TextAlign.center,
-          ),
-        ),
-        Expanded(
-          child: Text(
-            title2 ?? '',
-            style: isTitle ? TextStyle(fontSize: 12) : null,
-            textAlign: TextAlign.center,
-          ),
-        ),
-        Expanded(
-          child: Text(
-            title3 ?? '',
-            style: isTitle ? TextStyle(fontSize: 12) : null,
-            textAlign: TextAlign.center,
-          ),
-        ),
-        Expanded(
-          child: Text(
-            title4 ?? '',
-            style: isTitle ? TextStyle(fontSize: 12) : null,
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-const imageUrl =
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR132TBAD0-GhGhN8_2Xr-3obkFd4NzFbk6Hg&s';
