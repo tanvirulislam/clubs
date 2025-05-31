@@ -1,7 +1,7 @@
 import 'package:club/clubs/context.dart';
 import 'package:club/clubs/custom.widget/custom.button.dart';
 import 'package:club/clubs/custom.widget/custom.textfield.dart';
-import 'package:club/clubs/module/club.details/view/desktop/tabs/trophies/add.trophy.logo.dart';
+import 'package:club/clubs/module/club.details/view/tabs/trophies/add.trophy.logo.dart';
 import 'package:club/clubs/ui.const.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,7 @@ class AddTrophy extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Add Trophies', style: context.titleLarge),
+            Text('Add Trophy', style: context.titleLarge),
             height10,
             AddTrophieLogo(),
             height10,

@@ -1,5 +1,7 @@
+import 'package:club/clubs/context.dart';
 import 'package:club/clubs/custom.widget/custom.button.dart';
-import 'package:club/clubs/module/club.details/view/desktop/tabs/teams/team.card.dart';
+import 'package:club/clubs/module/club.details/view/desktop/teams/team.card.desktop.dart';
+import 'package:club/clubs/module/club.details/view/mobile/teams/team.card.mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -26,7 +28,7 @@ class Teams extends ConsumerWidget {
             ),
           );
         }
-        return TeamCard();
+        return context.isMobileWidth ? TeamCardMobile() : TeamCardDesktop();
       },
     );
   }

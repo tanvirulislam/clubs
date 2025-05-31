@@ -1,5 +1,6 @@
 import 'package:club/clubs/module/club.details/view/common.component/oponent.card.dart';
 import 'package:club/clubs/module/club.details/view/common.component/stat.card.dart';
+import 'package:club/clubs/ui.const.dart';
 import 'package:flutter/material.dart';
 import 'package:club/clubs/context.dart';
 import 'package:club/clubs/view/common.components/club.ads.dart' show ClubAds;
@@ -44,6 +45,7 @@ class ClubDetailsMobile extends DetailBasePageView {
 
             // ? custom widget into abstract clasa
             ClubStatSummaryCard(items: items, cardHeight: 165),
+            height5,
             OpponentCardList(),
             if (tabOptions != null && tabBarChildren != null)
               GameOptionsTabBar(

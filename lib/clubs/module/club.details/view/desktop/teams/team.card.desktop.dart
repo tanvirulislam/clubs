@@ -4,8 +4,8 @@ import 'package:club/clubs/ui.const.dart';
 import 'package:club/clubs/view/common.components/club.ads.dart';
 import 'package:flutter/material.dart';
 
-class TeamCard extends StatelessWidget {
-  const TeamCard({super.key});
+class TeamCardDesktop extends StatelessWidget {
+  const TeamCardDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
