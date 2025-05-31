@@ -1,3 +1,4 @@
+import 'package:club/clubs/custom.widget/custom.button.dart';
 import 'package:club/clubs/module/file.picker/provider/file.picker.provider.dart';
 import 'package:club/clubs/module/file.picker/view/upoaded.file.dart';
 import 'package:club/clubs/ui.const.dart';
@@ -13,7 +14,7 @@ class ClubBanner extends ConsumerWidget {
     return Column(
       children: [
         UploadedImage(providerTag: 'club_banner'),
-        ElevatedButton.icon(
+        CustomIconButton(
           onPressed: () async {
             try {
               await ref
@@ -29,17 +30,8 @@ class ClubBanner extends ConsumerWidget {
               );
             }
           },
-          label: Text(
-            pickedFile != null ? pickedFile.name : 'Upload Club Banner',
-          ),
-          icon: Icon(Icons.upload),
-          style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            backgroundColor: Color(0xff060C2F),
-            foregroundColor: Colors.white,
-          ),
+          title: pickedFile != null ? pickedFile.name : 'Upload Club Banner',
+          icon: Icons.upload,
         ),
 
         height5,

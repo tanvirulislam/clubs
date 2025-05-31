@@ -16,7 +16,6 @@ class FileHolder extends ConsumerWidget {
     return Container(
       margin: EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Colors.amber,
         border: Border.all(color: borderColor),
         borderRadius: BorderRadius.circular(8),
       ),

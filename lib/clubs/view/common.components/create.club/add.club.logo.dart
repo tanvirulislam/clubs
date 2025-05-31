@@ -1,7 +1,8 @@
 import 'package:club/clubs/context.dart';
+import 'package:club/clubs/custom.widget/custom.button.dart';
 import 'package:club/clubs/module/file.picker/provider/file.picker.provider.dart';
 import 'package:club/clubs/module/file.picker/view/upoaded.file.dart';
-import 'package:club/clubs/ui.const.dart' show width10, height5;
+import 'package:club/clubs/ui.const.dart' show height5, width10, width5;
 import 'package:club/clubs/view/common.components/create.club/club.title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,13 +20,13 @@ class AddClubLogo extends ConsumerWidget {
             ClubTitle("Club's Logo"),
             width10,
             SizedBox(
-              // width: 80,
+              width: 80,
               height: 80,
               child: UploadedImage(providerTag: 'club_logo'),
             ),
-            width10,
+            width5,
             Expanded(
-              child: ElevatedButton.icon(
+              child: CustomIconButton(
                 onPressed: () async {
                   try {
                     await ref
@@ -44,19 +45,30 @@ class AddClubLogo extends ConsumerWidget {
                     );
                   }
                 },
-                label: Text(
-                  pickedFile != null ? pickedFile.name : "Upload Club's Logo",
-                ),
-                icon: Icon(Icons.upload),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  backgroundColor: Color(0xff060C2F),
-                  foregroundColor: Colors.white,
-                ),
+                title: pickedFile != null
+                    ? pickedFile.name
+                    : "Upload Club's Logo",
+                icon: Icons.upload,
               ),
             ),
+            // Expanded(
+            //   child: ElevatedButton.icon(
+            //     onPressed: () async {
+
+            //     },
+            //     label: Text(
+            //       pickedFile != null ? pickedFile.name : "Upload Club's Logo",
+            //     ),
+            //     icon: Icon(Icons.upload),
+            //     style: ElevatedButton.styleFrom(
+            //       shape: RoundedRectangleBorder(
+            //         borderRadius: BorderRadius.circular(8),
+            //       ),
+            //       backgroundColor: Color(0xff060C2F),
+            //       foregroundColor: Colors.white,
+            //     ),
+            //   ),
+            // ),
           ],
         ),
         height5,

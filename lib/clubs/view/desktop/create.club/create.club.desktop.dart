@@ -1,3 +1,4 @@
+import 'package:club/clubs/custom.widget/custom.button.dart';
 import 'package:club/clubs/ui.const.dart' show height20, height30, width20;
 import 'package:club/clubs/view/common.components/club.ads.dart';
 import 'package:club/clubs/view/desktop/create.club/component/create.club.left.module.dart';
@@ -27,6 +28,8 @@ class CreateClubDesktop extends ConsumerWidget {
               ],
             ),
             height30,
+            CustomButton(onPressed: () => {}, title: 'Create Club'),
+            SizedBox(height: 50),
             ClubAds(),
           ],
         ),

@@ -15,7 +15,11 @@ class UploadedImage extends ConsumerWidget {
         ? FileHolder(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.file(File(pickedFiles.path ?? '')),
+              child: Image.file(
+                File(pickedFiles.path ?? ''),
+                fit: BoxFit.fill,
+                width: double.maxFinite,
+              ),
             ),
             onRemove: () =>
                 ref.read(filePickersProvider(providerTag).notifier).remove(),
