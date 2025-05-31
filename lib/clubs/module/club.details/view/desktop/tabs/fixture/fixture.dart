@@ -1,4 +1,4 @@
-import 'package:club/clubs/module/club.details/view/tabs/fixture/fixture.card.dart';
+import 'package:club/clubs/module/club.details/view/desktop/tabs/fixture/fixture.card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

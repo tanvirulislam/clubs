@@ -1,8 +1,10 @@
-import 'package:club/clubs/module/club.details/view/tabs/about.us/about.us.dart';
-import 'package:club/clubs/module/club.details/view/tabs/fixture/fixture.dart';
-import 'package:club/clubs/module/club.details/view/tabs/teams/teams.dart';
-import 'package:club/clubs/module/club.details/view/tabs/trophies/triphies.dart';
+import 'package:club/clubs/context.dart';
+import 'package:club/clubs/module/club.details/view/desktop/tabs/about.us/about.us.dart';
+import 'package:club/clubs/module/club.details/view/desktop/tabs/fixture/fixture.dart';
+import 'package:club/clubs/module/club.details/view/desktop/tabs/teams/teams.dart';
+import 'package:club/clubs/module/club.details/view/desktop/tabs/trophies/triphies.dart';
 import 'package:club/clubs/module/club.details/view/desktop/club.details.desktop.dart';
+import 'package:club/clubs/module/club.details/view/mobile/club.details.mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:club/clubs/view/common.components/club.ads.dart'
     show clubAdsImage;
@@ -14,13 +16,21 @@ class ClubDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Club Details')),
-      body: ClubDetailsDesktop(
-        image: clubAdsImage,
-        tabOptions: tabOptions,
-        tabBarChildren: tabBarChildren,
-        getSelectedOption: (option) => debugPrint('Selected: $option'),
-        getSelectedIndex: (index) => debugPrint('Selected index: $index'),
-      ),
+      body: context.isMobileWidth
+          ? ClubDetailsMobile(
+              image: clubAdsImage,
+              tabOptions: tabOptions,
+              tabBarChildren: tabBarChildren,
+              getSelectedOption: (option) => debugPrint('Selected: $option'),
+              getSelectedIndex: (index) => debugPrint('Selected index: $index'),
+            )
+          : ClubDetailsDesktop(
+              image: clubAdsImage,
+              tabOptions: tabOptions,
+              tabBarChildren: tabBarChildren,
+              getSelectedOption: (option) => debugPrint('Selected: $option'),
+              getSelectedIndex: (index) => debugPrint('Selected index: $index'),
+            ),
     );
   }
 }

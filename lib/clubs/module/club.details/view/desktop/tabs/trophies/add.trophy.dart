@@ -1,7 +1,7 @@
 import 'package:club/clubs/context.dart';
 import 'package:club/clubs/custom.widget/custom.button.dart';
 import 'package:club/clubs/custom.widget/custom.textfield.dart';
-import 'package:club/clubs/module/club.details/view/tabs/trophies/add.trophy.logo.dart';
+import 'package:club/clubs/module/club.details/view/desktop/tabs/trophies/add.trophy.logo.dart';
 import 'package:club/clubs/ui.const.dart';
 import 'package:flutter/material.dart';
 
