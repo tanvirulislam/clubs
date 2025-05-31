@@ -4,8 +4,8 @@ import 'package:club/clubs/ui.const.dart';
 import 'package:club/clubs/view/common.components/club.ads.dart';
 import 'package:flutter/material.dart';
 
-class FixtureCard extends StatelessWidget {
-  const FixtureCard({super.key});
+class FixtureCardDesktop extends StatelessWidget {
+  const FixtureCardDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {

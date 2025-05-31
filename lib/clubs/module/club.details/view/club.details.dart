@@ -1,6 +1,6 @@
 import 'package:club/clubs/context.dart';
 import 'package:club/clubs/module/club.details/view/tabs/about.us/about.us.dart';
-import 'package:club/clubs/module/club.details/view/desktop/fixture/fixture.dart';
+import 'package:club/clubs/module/club.details/view/tabs/fixture/fixture.dart';
 import 'package:club/clubs/module/club.details/view/tabs/teams/teams.dart';
 import 'package:club/clubs/module/club.details/view/tabs/trophies/triphies.dart';
 import 'package:club/clubs/module/club.details/view/desktop/club.details.desktop.dart';
