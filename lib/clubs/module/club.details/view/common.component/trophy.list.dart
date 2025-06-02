@@ -16,7 +16,12 @@ class TrophyList extends StatelessWidget {
             width: 120,
             child: Column(
               children: [
-                Image.network(clubAdsImage, height: 120, width: context.width),
+                Image.network(
+                  clubAdsImage,
+                  height: 120,
+                  width: context.width,
+                  fit: BoxFit.fill,
+                ),
                 Text(
                   "UEFA Champions League Champion",
                   textAlign: TextAlign.center,
