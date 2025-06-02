@@ -14,63 +14,88 @@ class AddClubLogo extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final pickedFile = ref.watch(filePickersProvider('club_logo'));
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            ClubTitle("Club's Logo"),
-            width10,
-            SizedBox(
-              width: 80,
-              height: 80,
-              child: UploadedImage(providerTag: 'club_logo'),
-            ),
-            width5,
-            Expanded(
-              child: CustomIconButton(
-                onPressed: () async {
-                  try {
-                    await ref
-                        .read(filePickersProvider('club_logo').notifier)
-                        .pickFile(
-                          allowedExtensions: ['jpg', 'jpeg', 'png'],
-                          maxSizeInKB: 200,
+        context.isMobileWidth
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClubTitle("Club's Logo"),
+                  height5,
+                  pickedFile != null
+                      ? SizedBox(
+                          width: 80,
+                          height: 80,
+                          child: UploadedImage(providerTag: 'club_logo'),
+                        )
+                      : SizedBox.shrink(),
+                  width5,
+                  CustomIconButton(
+                    onPressed: () async {
+                      try {
+                        await ref
+                            .read(filePickersProvider('club_logo').notifier)
+                            .pickFile(
+                              allowedExtensions: ['jpg', 'jpeg', 'png'],
+                              maxSizeInKB: 200,
+                            );
+                      } catch (e) {
+                        if (!context.mounted) return;
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(e.toString()),
+                            backgroundColor: Colors.red,
+                          ),
                         );
-                  } catch (e) {
-                    if (!context.mounted) return;
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(e.toString()),
-                        backgroundColor: Colors.red,
-                      ),
-                    );
-                  }
-                },
-                title: pickedFile != null
-                    ? pickedFile.name
-                    : "Upload Club's Logo",
-                icon: Icons.upload,
+                      }
+                    },
+                    title: pickedFile != null
+                        ? pickedFile.name
+                        : "Upload Club's Logo",
+                    icon: Icons.upload,
+                  ),
+                ],
+              )
+            : Row(
+                children: [
+                  ClubTitle("Club's Logo"),
+                  width10,
+                  pickedFile != null
+                      ? SizedBox(
+                          width: 80,
+                          height: 80,
+                          child: UploadedImage(providerTag: 'club_logo'),
+                        )
+                      : SizedBox.shrink(),
+                  width5,
+                  Expanded(
+                    child: CustomIconButton(
+                      onPressed: () async {
+                        try {
+                          await ref
+                              .read(filePickersProvider('club_logo').notifier)
+                              .pickFile(
+                                allowedExtensions: ['jpg', 'jpeg', 'png'],
+                                maxSizeInKB: 200,
+                              );
+                        } catch (e) {
+                          if (!context.mounted) return;
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(e.toString()),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                        }
+                      },
+                      title: pickedFile != null
+                          ? pickedFile.name
+                          : "Upload Club's Logo",
+                      icon: Icons.upload,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            // Expanded(
-            //   child: ElevatedButton.icon(
-            //     onPressed: () async {
-
-            //     },
-            //     label: Text(
-            //       pickedFile != null ? pickedFile.name : "Upload Club's Logo",
-            //     ),
-            //     icon: Icon(Icons.upload),
-            //     style: ElevatedButton.styleFrom(
-            //       shape: RoundedRectangleBorder(
-            //         borderRadius: BorderRadius.circular(8),
-            //       ),
-            //       backgroundColor: Color(0xff060C2F),
-            //       foregroundColor: Colors.white,
-            //     ),
-            //   ),
-            // ),
-          ],
-        ),
         height5,
         Container(
           width: context.width,

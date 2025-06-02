@@ -14,7 +14,7 @@ class FixtureCardMobile extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            // Left side - Date and Time
+            // ? Date and Time
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -25,7 +25,7 @@ class FixtureCardMobile extends StatelessWidget {
               ],
             ),
             height10,
-            // ? Center - Teams vs Section
+            // ?   Teams vs Section
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -126,7 +126,7 @@ class FixtureCardMobile extends StatelessWidget {
             ),
             height10,
 
-            // ? Right side - Field Info
+            // ? Field Info
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,

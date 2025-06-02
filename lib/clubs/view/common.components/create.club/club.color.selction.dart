@@ -1,3 +1,4 @@
+import 'package:club/clubs/context.dart';
 import 'package:club/clubs/provider/providers.dart';
 import 'package:club/clubs/ui.const.dart';
 import 'package:club/clubs/view/common.components/create.club/club.title.dart';
@@ -14,106 +15,213 @@ class ClubColorSelection extends ConsumerWidget {
     final colorSelectionProvider = ref.watch(clubColorSelectionProvider) ?? [];
     final notifier = ref.read(clubColorSelectionProvider.notifier);
 
-    return Row(
-      children: [
-        Expanded(child: ClubTitle("Club's Colors")),
-        width20,
-        Expanded(
-          flex: 3,
-          child: SizedBox(
-            height: 80,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: colorSelectionProvider.length + 1,
-              itemBuilder: (BuildContext context, int index) {
-                if (colorSelectionProvider.length == index ||
-                    colorSelectionProvider.isEmpty) {
-                  return GestureDetector(
-                    onTapDown: (details) async {
-                      await notifier.addColor();
-                      if (!context.mounted) return;
-                      await showColorPickerDialog(
-                        context,
-                        details.globalPosition,
-                        ClubColor(index),
-                      );
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          // margin: EdgeInsets.only(left: 8),
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Icon(Icons.add),
-                        ),
-                      ],
-                    ),
-                  );
-                }
-                final club = colorSelectionProvider[index];
-                return Stack(
-                  alignment: AlignmentDirectional.center,
-                  clipBehavior: Clip.none,
-                  children: [
-                    Container(
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.only(right: 8),
-                      height: 40,
-                      child: Container(
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Row(
+    return context.isMobileWidth
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClubTitle("Club's Colors"),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(colorSelectionProvider.length + 1, (
+                    index,
+                  ) {
+                    if (colorSelectionProvider.length == index ||
+                        colorSelectionProvider.isEmpty) {
+                      return InkWell(
+                        onTapDown: (details) async {
+                          await notifier.addColor();
+                          if (!context.mounted) return;
+                          await showColorPickerDialog(
+                            context,
+                            details.globalPosition,
+                            SizedBox(width: 300, child: ClubColor(index)),
+                          );
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              height: 30,
-                              width: 30,
-                              color: Color(
-                                int.parse("0xff${club.colorCode ?? ''}"),
+                              alignment: Alignment.center,
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(4),
                               ),
+                              child: Icon(Icons.add),
                             ),
-                            width10,
-                            Text(club.colorName ?? ''),
                           ],
                         ),
+                      );
+                    }
+                    final club = colorSelectionProvider[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 8, bottom: 8),
+                      child: Stack(
+                        alignment: AlignmentDirectional.center,
+                        clipBehavior: Clip.none,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(right: 8, top: 8),
+                            height: 40,
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Container(
+                                    height: 30,
+                                    width: 30,
+                                    color: Color(
+                                      int.parse("0xff${club.colorCode ?? ''}"),
+                                    ),
+                                  ),
+                                  width10,
+                                  Text(club.colorName ?? ''),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 0,
+                            right: -3,
+                            child: InkWell(
+                              onTap: () {
+                                ref
+                                    .read(clubColorSelectionProvider.notifier)
+                                    .removeColor(index);
+                              },
+                              child: CircleAvatar(
+                                backgroundColor: Colors.grey.shade300,
+                                radius: 12,
+                                child: Icon(
+                                  Icons.close,
+                                  size: 13,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    Positioned(
-                      top: 5,
-                      right: 3,
-                      child: InkWell(
-                        onTap: () {
-                          ref
-                              .read(clubColorSelectionProvider.notifier)
-                              .removeColor(index);
-                        },
-                        child: CircleAvatar(
-                          backgroundColor: Colors.grey.shade300,
-                          radius: 12,
-                          child: Icon(Icons.close, size: 13, color: Colors.red),
-                        ),
-                      ),
-                    ),
-                  ],
-                );
-              },
-            ),
-          ),
-        ),
-      ],
-    );
+                    );
+                  }),
+                ),
+              ),
+            ],
+          )
+        : Row(
+            children: [
+              Expanded(child: ClubTitle("Club's Colors")),
+              width20,
+              Expanded(
+                flex: 3,
+                child: SizedBox(
+                  height: 80,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: colorSelectionProvider.length + 1,
+                    itemBuilder: (BuildContext context, int index) {
+                      if (colorSelectionProvider.length == index ||
+                          colorSelectionProvider.isEmpty) {
+                        return GestureDetector(
+                          onTapDown: (details) async {
+                            await notifier.addColor();
+                            if (!context.mounted) return;
+                            await showColorPickerDialog(
+                              context,
+                              details.globalPosition,
+                              ClubColor(index),
+                            );
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                alignment: Alignment.center,
+                                // margin: EdgeInsets.only(left: 8),
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: Icon(Icons.add),
+                              ),
+                            ],
+                          ),
+                        );
+                      }
+                      final club = colorSelectionProvider[index];
+                      return Stack(
+                        alignment: AlignmentDirectional.center,
+                        clipBehavior: Clip.none,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(right: 8),
+                            height: 40,
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height: 30,
+                                    width: 30,
+                                    color: Color(
+                                      int.parse("0xff${club.colorCode ?? ''}"),
+                                    ),
+                                  ),
+                                  width10,
+                                  Text(club.colorName ?? ''),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 5,
+                            right: 3,
+                            child: InkWell(
+                              onTap: () {
+                                ref
+                                    .read(clubColorSelectionProvider.notifier)
+                                    .removeColor(index);
+                              },
+                              child: CircleAvatar(
+                                backgroundColor: Colors.grey.shade300,
+                                radius: 12,
+                                child: Icon(
+                                  Icons.close,
+                                  size: 13,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
+          );
   }
 }
 

@@ -22,43 +22,40 @@ class CreateClubMobileContent extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CommonRowForClub(
-            'Club Name',
-            CustomTextField(
-              label: 'Enter Club Name',
-              onChanged: (p0) {},
-              useController: false,
-              useValidator: false,
-            ),
+          ClubTitle('Club Name'),
+          CustomTextField(
+            label: 'Enter Club Name',
+            onChanged: (p0) {},
+            useController: false,
+            useValidator: false,
           ),
-          CommonRowForClub(
-            'Club Manager',
-            CustomDropDown(
-              items: ['Manager 1', 'Manager 2', 'Manager 3'],
-              onChanged: (p0) {},
-              value: '',
-              useSearchableDropdown: true,
-              hint: 'Choose Manager',
-            ),
+          height10,
+          ClubTitle('Club Manager'),
+          CustomDropDown(
+            items: ['Manager 1', 'Manager 2', 'Manager 3'],
+            onChanged: (p0) {},
+            value: '',
+            useSearchableDropdown: true,
+            hint: 'Choose Manager',
           ),
-          CommonRowForClub(
-            'Club eMail',
-            CustomTextField(
-              label: 'Enter Club eMail',
-              onChanged: (p0) {},
-              useValidator: true,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Email is required';
-                }
-                if (!emailRegex.hasMatch(value)) {
-                  return 'Please enter a valid email address';
-                }
-                return null;
-              },
-            ),
+          ClubTitle('Club Email'),
+          CustomTextField(
+            label: 'Enter Club Email',
+            onChanged: (p0) {},
+            useValidator: true,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Email is required';
+              }
+              if (!emailRegex.hasMatch(value)) {
+                return 'Please enter a valid email address';
+              }
+              return null;
+            },
           ),
+          height10,
           CountryCodeSelector(
             selectedCountryCode: '',
             onCountryChanged: (country) {
@@ -67,54 +64,44 @@ class CreateClubMobileContent extends ConsumerWidget {
             },
             initialSelection: 'BD',
           ),
-          CommonRowForClub(
-            'Club Country',
-            CustomDropDown(
-              items: [],
-              onChanged: (p0) {},
-              value: '',
-              useSearchableDropdown: true,
-              hint: 'Select Club Country',
-            ),
+          ClubTitle('Club Country'),
+          CustomDropDown(
+            items: [],
+            onChanged: (p0) {},
+            value: '',
+            useSearchableDropdown: true,
+            hint: 'Select Club Country',
           ),
-          CommonRowForClub(
-            'Club Division',
-            CustomDropDown(
-              items: [],
-              onChanged: (p0) {},
-              value: '',
-              useSearchableDropdown: true,
-              hint: 'Select Club Division',
-            ),
+          ClubTitle('Club Division'),
+          CustomDropDown(
+            items: [],
+            onChanged: (p0) {},
+            value: '',
+            useSearchableDropdown: true,
+            hint: 'Select Club Division',
           ),
-          CommonRowForClub(
-            'Club District',
-            CustomDropDown(
-              items: [],
-              onChanged: (p0) {},
-              value: '',
-              useSearchableDropdown: true,
-              hint: 'Select Club District',
-            ),
+          ClubTitle('Club District'),
+          CustomDropDown(
+            items: [],
+            onChanged: (p0) {},
+            value: '',
+            useSearchableDropdown: true,
+            hint: 'Select Club District',
           ),
-          CommonRowForClub(
-            'Club City',
-            CustomDropDown(
-              items: [],
-              onChanged: (p0) {},
-              value: '',
-              useSearchableDropdown: true,
-              hint: 'Select Club City',
-            ),
+          ClubTitle('Club City'),
+          CustomDropDown(
+            items: [],
+            onChanged: (p0) {},
+            value: '',
+            useSearchableDropdown: true,
+            hint: 'Select Club City',
           ),
-          CommonRowForClub(
-            'Club Address',
-            CustomTextField(label: 'Enter Address', onChanged: (p0) {}),
-          ),
-          CommonRowForClub(
-            'Club Post Code',
-            CustomTextField(label: 'Enter Post Code', onChanged: (p0) {}),
-          ),
+          ClubTitle('Club Address'),
+          CustomTextField(label: 'Enter Address', onChanged: (p0) {}),
+          height10,
+          ClubTitle('Club Post Code'),
+          CustomTextField(label: 'Enter Post Code', onChanged: (p0) {}),
+          height10,
           ClubGoogleMapLink(),
           ClubEstablishedDate(),
           height10,
@@ -130,16 +117,16 @@ class CreateClubMobileContent extends ConsumerWidget {
           AddClubLogo(),
           height10,
           ClubColorSelection(),
+          height10,
           AddClubVideoLink(),
-          CommonRowForClub(
-            "Club's Website",
-            CustomTextField(label: "Enter Club's Website", onChanged: (p0) {}),
-          ),
+          height10,
+          ClubTitle("Club's Website"),
+          CustomTextField(label: "Enter Club's Website", onChanged: (p0) {}),
+          height10,
           AddClubSocialLink(),
-          CommonRowForClub(
-            "Club's URL Name",
-            CustomTextField(label: "Enter Club's URL Name", onChanged: (p0) {}),
-          ),
+          ClubTitle("Club's URL Name"),
+          CustomTextField(label: "Enter Club's URL Name", onChanged: (p0) {}),
+          height10,
           Container(
             width: context.width,
             decoration: BoxDecoration(

@@ -1,3 +1,4 @@
+import 'package:club/clubs/context.dart';
 import 'package:club/clubs/ui.const.dart' show width20;
 import 'package:club/clubs/view/common.components/create.club/club.title.dart';
 import 'package:club/clubs/custom.widget/custom.textfield.dart';
@@ -11,26 +12,51 @@ class ClubGoogleMapLink extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
-      child: Row(
-        children: [
-          Expanded(flex: 1, child: ClubTitle('Google Map Link')),
-          width20,
-          Expanded(
-            flex: 3,
-            child: Row(
+      child: context.isMobileWidth
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                ClubTitle('Google Map Link'),
+
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomTextField(
+                        label: 'Enter Google Map Link',
+                        onChanged: (p0) {},
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.location_pin),
+                    ),
+                  ],
+                ),
+              ],
+            )
+          : Row(
+              children: [
+                Expanded(flex: 1, child: ClubTitle('Google Map Link')),
+                width20,
                 Expanded(
-                  child: CustomTextField(
-                    label: 'Enter Google Map Link',
-                    onChanged: (p0) {},
+                  flex: 3,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: CustomTextField(
+                          label: 'Enter Google Map Link',
+                          onChanged: (p0) {},
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.location_pin),
+                      ),
+                    ],
                   ),
                 ),
-                IconButton(onPressed: () {}, icon: Icon(Icons.location_pin)),
               ],
             ),
-          ),
-        ],
-      ),
     );
   }
 }
