@@ -1,8 +1,10 @@
 import 'package:club/clubs/module/club.details/view/common.component/oponent.card.dart';
 import 'package:club/clubs/module/club.details/view/common.component/stat.card.dart';
+import 'package:club/clubs/module/club.details/view/common.component/trophy.list.dart';
+import 'package:club/clubs/ui.const.dart';
+import 'package:club/clubs/view/common.components/club.ads.dart';
 import 'package:flutter/material.dart';
 import 'package:club/clubs/context.dart';
-import 'package:club/clubs/view/common.components/club.ads.dart' show ClubAds;
 import 'package:club/clubs/custom.widget/abstract.classes/detail.base.page.view.dart';
 import 'package:club/clubs/custom.widget/abstract.classes/game.options.tab.bar.dart';
 
@@ -32,6 +34,7 @@ class ClubDetailsDesktop extends DetailBasePageView {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClubAds(),
             Padding(
@@ -40,16 +43,20 @@ class ClubDetailsDesktop extends DetailBasePageView {
             ),
 
             buildSecondaryHeader(context),
-            SizedBox(height: 12),
+            height10,
             buildSecondarySubHeader(context),
 
-            // ? custom widget
+            // ? custom widget -----------------------------------
+            // Trofy list
+            TrophyList(),
+            height10,
             Row(
               children: [
                 ClubStatSummaryCard(items: items, cardHeight: 165),
                 Expanded(child: OpponentCardList()),
               ],
             ),
+            // ?  -----------------------------------
             if (tabOptions != null && tabBarChildren != null)
               GameOptionsTabBar(
                 options: [...tabOptions ?? []],

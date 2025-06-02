@@ -1,5 +1,6 @@
 import 'package:club/clubs/module/club.details/view/common.component/oponent.card.dart';
 import 'package:club/clubs/module/club.details/view/common.component/stat.card.dart';
+import 'package:club/clubs/module/club.details/view/common.component/trophy.list.dart';
 import 'package:club/clubs/ui.const.dart';
 import 'package:flutter/material.dart';
 import 'package:club/clubs/context.dart';
@@ -40,13 +41,16 @@ class ClubDetailsMobile extends DetailBasePageView {
               child: buildHeader(context),
             ),
             buildSecondaryHeader(context),
-            SizedBox(height: 12),
+            height10,
             buildSecondarySubHeader(context),
 
             // ? custom widget into abstract clasa
+            TrophyList(),
+            height10,
             ClubStatSummaryCard(items: items, cardHeight: 165),
             height5,
             OpponentCardList(),
+            // ? ----------------------------------
             if (tabOptions != null && tabBarChildren != null)
               GameOptionsTabBar(
                 options: [...tabOptions ?? []],

@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:club/clubs/helper.method/helper.method.dart';
 import 'package:club/clubs/custom.widget/abstract.classes/opponent.base.card.dart';
-import 'package:club/clubs/view/common.components/club.ads.dart'
-    show clubAdsImage;
+import 'package:club/clubs/ui.const.dart' show clubAdsImage;
 import 'package:flutter/material.dart';
 
 class OponentCard extends OpponentBaseCard {

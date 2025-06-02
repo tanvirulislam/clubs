@@ -61,37 +61,41 @@ class AddTrophieLogo extends ConsumerWidget {
                 children: [
                   ClubTitle("Trophie Picture"),
                   width10,
-                  SizedBox(
-                    width: 80,
-                    height: 80,
-                    child: UploadedImage(providerTag: 'trophy_picture'),
-                  ),
+                  pickedFile != null
+                      ? SizedBox(
+                          width: 80,
+                          height: 80,
+                          child: UploadedImage(providerTag: 'trophy_picture'),
+                        )
+                      : SizedBox.shrink(),
                   width10,
-                  CustomIconButton(
-                    onPressed: () async {
-                      try {
-                        await ref
-                            .read(
-                              filePickersProvider('trophy_picture').notifier,
-                            )
-                            .pickFile(
-                              allowedExtensions: ['jpg', 'jpeg', 'png'],
-                              maxSizeInKB: 200,
-                            );
-                      } catch (e) {
-                        if (!context.mounted) return;
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(e.toString()),
-                            backgroundColor: Colors.red,
-                          ),
-                        );
-                      }
-                    },
-                    title: pickedFile != null
-                        ? pickedFile.name
-                        : 'Upload Trophie Picture',
-                    icon: Icons.upload,
+                  Expanded(
+                    child: CustomIconButton(
+                      onPressed: () async {
+                        try {
+                          await ref
+                              .read(
+                                filePickersProvider('trophy_picture').notifier,
+                              )
+                              .pickFile(
+                                allowedExtensions: ['jpg', 'jpeg', 'png'],
+                                maxSizeInKB: 200,
+                              );
+                        } catch (e) {
+                          if (!context.mounted) return;
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(e.toString()),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                        }
+                      },
+                      title: pickedFile != null
+                          ? pickedFile.name
+                          : 'Upload Trophie Picture',
+                      icon: Icons.upload,
+                    ),
                   ),
                 ],
               ),

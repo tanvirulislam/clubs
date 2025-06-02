@@ -5,9 +5,8 @@ import 'package:club/clubs/module/club.details/view/tabs/teams/teams.dart';
 import 'package:club/clubs/module/club.details/view/tabs/trophies/triphies.dart';
 import 'package:club/clubs/module/club.details/view/desktop/club.details.desktop.dart';
 import 'package:club/clubs/module/club.details/view/mobile/club.details.mobile.dart';
+import 'package:club/clubs/ui.const.dart' show clubAdsImage;
 import 'package:flutter/material.dart';
-import 'package:club/clubs/view/common.components/club.ads.dart'
-    show clubAdsImage;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ClubDetails extends ConsumerWidget {
@@ -51,22 +50,6 @@ List<String>? tabOptions = [
   'Posts',
   'Gallery',
 ];
-
-// List<Widget>? tabBarChildrenMobile = [
-//   AboutUs(),
-//   Teophies(),
-//   TeamsMobile(),
-//   Fixture(),
-//   Text('Live Metch'),
-//   Text('Previous Metch'),
-//   Text('Club Events'),
-//   Text('Fecelites'),
-//   Text('Club turnaments'),
-//   Text('Recruitments'),
-//   Text('Book field'),
-//   Text('Posta'),
-//   Text('Gallery'),
-// ];
 
 List<Widget>? tabBarChildrenDesktop = [
   AboutUs(),

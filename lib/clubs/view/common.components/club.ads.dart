@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:club/clubs/context.dart';
+import 'package:club/clubs/ui.const.dart' show clubAdsImage;
 import 'package:flutter/material.dart';
 
 class ClubAds extends StatelessWidget {
@@ -48,6 +49,3 @@ class ClubAds extends StatelessWidget {
     );
   }
 }
-
-const String clubAdsImage =
-    'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
