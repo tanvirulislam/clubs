@@ -47,7 +47,7 @@ class ClubDetailsDesktop extends DetailBasePageView {
             buildSecondarySubHeader(context),
 
             // ? custom widget -----------------------------------
-            // Trofy list
+            // ? Trofy list
             TrophyList(),
             height10,
             Row(
