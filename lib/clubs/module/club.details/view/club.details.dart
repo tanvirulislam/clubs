@@ -53,7 +53,7 @@ List<String>? tabOptions = [
 
 List<Widget>? tabBarChildrenDesktop = [
   AboutUs(),
-  Teophies(),
+  Trophies(),
   Teams(),
   Fixture(),
   Text('Live Metch'),

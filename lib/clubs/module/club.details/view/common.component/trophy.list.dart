@@ -1,5 +1,4 @@
 import 'package:club/clubs/context.dart';
-import 'package:club/clubs/ui.const.dart' show clubAdsImage;
 import 'package:flutter/material.dart';
 
 class TrophyList extends StatelessWidget {
@@ -16,8 +15,8 @@ class TrophyList extends StatelessWidget {
             width: 120,
             child: Column(
               children: [
-                Image.network(
-                  clubAdsImage,
+                Image.asset(
+                  'assets/trophy.png',
                   height: 120,
                   width: context.width,
                   fit: BoxFit.fill,

@@ -7,8 +7,8 @@ import 'package:club/clubs/view/common.components/create.club/club.title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Teophies extends ConsumerWidget {
-  const Teophies({super.key});
+class Trophies extends ConsumerWidget {
+  const Trophies({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
